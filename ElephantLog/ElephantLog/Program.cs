@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dag38.AuditLog
+namespace ElephantLog
 {
     class Program
     {

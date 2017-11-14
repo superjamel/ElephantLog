@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Dag38.AuditLog.Test
+namespace ElephantLog.Test
 {
     [TestClass]
     public class UnitTest1
