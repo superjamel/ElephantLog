@@ -43,7 +43,7 @@ namespace ElephantLog
                })
                .UseStartup<Startup>()
                .UseSerilog(new LoggerConfiguration()
-                            .MinimumLevel.Verbose()
+                            .MinimumLevel.Is(LogEventLevel.Information)
                             .Enrich.FromLogContext()
                             .WriteTo.Console(LogEventLevel.Information)
                             .WriteTo.MongoDB("mongodb://localhost/logs", collectionName: "appAudits")
