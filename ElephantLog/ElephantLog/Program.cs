@@ -4,9 +4,16 @@ namespace ElephantLog
 {
     class Program
     {
+        public static string AsciiiElephant = @"          / \__/ \_____
+         /  /  \  \    `\
+         )  \''/  (     |\
+         `\__)/__/'_\  / `
+            //_|_|~|_|_|   ";
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            Console.WriteLine(AsciiiElephant);
         }
     }
 }
