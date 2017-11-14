@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using ElephantLog.Domain;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace ElephantLog.Services
 {
@@ -17,7 +18,7 @@ namespace ElephantLog.Services
 
         public void LogMessage(LogEvent logEvent)
         {
-            Log.LogInformation(logEvent.ToString());
+            Log.LogInformation(JsonConvert.SerializeObject(logEvent));
         }
     }
 }
