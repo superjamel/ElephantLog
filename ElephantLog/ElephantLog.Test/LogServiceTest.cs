@@ -21,7 +21,8 @@ namespace ElephantLog.Test
             var eventToLog = new LogEvent();
             sut.LogMessage(eventToLog);
 
-            mock.Verify(logger => logger.LogInformation(It.IsAny<string>()));
+            //mock.Verify(logger => logger.LogInformation(It.IsAny<string>()));
+            Assert.Fail("TODO");
         }
     }
 }

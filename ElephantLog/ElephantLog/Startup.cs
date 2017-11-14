@@ -1,8 +1,15 @@
 ﻿using System;
+using ElephantLog.Repositories;
+using ElephantLog.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using MongoDB.Driver;
+using Serilog;
+using Serilog.Events;
+using ILogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace ElephantLog
 {
@@ -18,10 +25,12 @@ namespace ElephantLog
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var dbConnString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING") ??
-                               Configuration.GetConnectionString("DbConnectionString");
-
+            services.AddTransient<ILogService, LogService>();
             services.AddMvc();
+            services.AddTransient<ILogRepository, LogRepository>();
+            services.AddTransient(service => 
+                new MongoClient("mongodb://localhost:27017")
+                .GetDatabase("logs"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,7 +40,6 @@ namespace ElephantLog
                 app.UseDeveloperExceptionPage();
             
             app.UseMvc();
-            
         }
     }
 }
