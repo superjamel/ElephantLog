@@ -17,4 +17,10 @@
     <PackageReference Include="Serilog.Sinks.MSSqlServerCore" Version="1.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Dag37.MQ.Lib">
+      <HintPath>bin\Debug\netcoreapp2.0\Dag37.MQ.Lib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
