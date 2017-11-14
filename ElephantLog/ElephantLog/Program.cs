@@ -1,19 +1,31 @@
 ﻿using System;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
 
 namespace ElephantLog
 {
-    class Program
+    public class Program
     {
-        public static string AsciiiElephant = @"          / \__/ \_____
+        public static string AsciiiElephant = @"
+          / \__/ \_____
          /  /  \  \    `\
          )  \''/  (     |\
          `\__)/__/'_\  / `
             //_|_|~|_|_|   ";
 
-        static void Main(string[] args)
-        {
+       
 
+        public static void Main(string[] args)
+        {
             Console.WriteLine(AsciiiElephant);
+            BuildWebHost(args).Run();
+        }
+
+        public static IWebHost BuildWebHost(string[] args)
+        {
+            return WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .Build();
         }
     }
 }

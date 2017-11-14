@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElephantLog", "ElephantLog\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElephantLog.Test", "ElephantLog.Test\ElephantLog.Test.csproj", "{6D0FA88F-C55D-4C54-9A83-F10AF060400E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dag37.MQ.Lib", "..\..\Minor2017-Nico\Dag37.MQ.Lib\Dag37.MQ.Lib\Dag37.MQ.Lib.csproj", "{14AA7361-8576-4708-B915-9E6E21BEC9C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6D0FA88F-C55D-4C54-9A83-F10AF060400E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D0FA88F-C55D-4C54-9A83-F10AF060400E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D0FA88F-C55D-4C54-9A83-F10AF060400E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14AA7361-8576-4708-B915-9E6E21BEC9C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14AA7361-8576-4708-B915-9E6E21BEC9C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14AA7361-8576-4708-B915-9E6E21BEC9C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14AA7361-8576-4708-B915-9E6E21BEC9C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
