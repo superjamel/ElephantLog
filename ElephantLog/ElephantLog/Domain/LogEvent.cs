@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ElephantLog.Domain
 {
-    class LogEvent
+    public class LogEvent
     {
     }
 }

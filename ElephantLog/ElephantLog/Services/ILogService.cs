@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ElephantLog.Domain;
 
 namespace ElephantLog.Services
 {
-    class ILogController
+    public interface ILogService
     {
+        void LogMessage(LogEvent logEvent);
     }
 }
