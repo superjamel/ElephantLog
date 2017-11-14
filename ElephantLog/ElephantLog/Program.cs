@@ -46,7 +46,7 @@ namespace ElephantLog
                             .MinimumLevel.Is(LogEventLevel.Information)
                             .Enrich.FromLogContext()
                             .WriteTo.Console(LogEventLevel.Information)
-                            .WriteTo.MongoDB("mongodb://localhost/logs", collectionName: "appAudits")
+                            .WriteTo.MongoDB("mongodb://localhost/logs", collectionName: "appOperations")
                             .CreateLogger())
                             .Build();
             return webHost;

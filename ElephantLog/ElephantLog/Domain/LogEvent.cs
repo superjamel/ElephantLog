@@ -6,5 +6,6 @@ namespace ElephantLog.Domain
 {
     public class LogEvent
     {
+        public string Body { get; set; }
     }
 }
