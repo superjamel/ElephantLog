@@ -4,6 +4,7 @@ using System.Text;
 using ElephantLog.Domain;
 using ElephantLog.Services;
 using Microsoft.AspNetCore.Mvc;
+using Dag37.MQ.Lib;
 
 namespace ElephantLog.Controllers
 {
@@ -17,11 +18,10 @@ namespace ElephantLog.Controllers
             LogService = logService;
         }
 
-        [HttpPost]
-        public IActionResult LogMessage([FromBody] LogEvent logEvent)
+        [Event("Event", "#")]
+        public void LogMessage(LogEvent logEvent)
         {
             LogService.LogMessage(logEvent);
-            return Ok();
         }
     }
 }
