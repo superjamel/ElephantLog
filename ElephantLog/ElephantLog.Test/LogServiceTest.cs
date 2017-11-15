@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using ElephantLog.Domain;
+using ElephantLog.Repositories;
 using ElephantLog.Services;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -16,7 +17,8 @@ namespace ElephantLog.Test
         public void LogMessage_GivenEventMessage_ShouldWriteMessageToDb()
         {
             var mock = new Mock<ILogger<LogService>>();
-            var sut = new LogService(mock.Object);
+            var repo = new Mock<ILogRepository>();
+            var sut = new LogService(mock.Object, repo.Object);
 
             var eventToLog = new LogEvent();
             sut.LogMessage(eventToLog);

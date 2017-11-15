@@ -21,6 +21,10 @@ namespace ElephantLog.Controllers
         [Event("Event", "#")]
         public void LogMessage(LogEvent logEvent)
         {
+            if (logEvent.TimeLogged == null)
+            {
+                logEvent.TimeLogged = DateTime.Now;
+            }
             LogService.LogMessage(logEvent);
         }
     }
