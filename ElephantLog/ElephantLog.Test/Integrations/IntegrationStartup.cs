@@ -1,22 +1,19 @@
-﻿using System;
+﻿using Dag37.MQ.Lib;
 using ElephantLog.Repositories;
 using ElephantLog.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using MongoDB.Driver;
-using Serilog;
-using Serilog.Events;
-using ILogger = Microsoft.Extensions.Logging.ILogger;
-using Dag37.MQ.Lib;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace ElephantLog
+namespace ElephantLog.Test.Integrations
 {
-    public class Startup
+    public class IntegrationStartup
     {
-        public Startup(IConfiguration configuration)
+        public IntegrationStartup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -29,19 +26,18 @@ namespace ElephantLog
             services.AddTransient<ILogService, LogService>();
             services.AddMvc();
             services.AddTransient<ILogRepository, LogRepository>();
-            services.AddTransient(service => 
-                new MongoClient("mongodb://localhost:27017")
-                .GetDatabase("logs"));
-            services.AddRabbitMQ(new BusOptions { HostName = "localhost", Port = 15672 });
+            services.AddRabbitMQ(new BusOptions { HostName = "localhost", Port = 5672 });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
+            {
                 app.UseDeveloperExceptionPage();
-            
-            app.UseMvc();
+            }
+
+            app.UseRabbitMQ();
         }
     }
 }

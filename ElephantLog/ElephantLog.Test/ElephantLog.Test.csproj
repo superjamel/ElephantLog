@@ -6,6 +6,7 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
+
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
     <PackageReference Include="Moq" Version="4.7.145" />
@@ -15,6 +16,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ElephantLog\ElephantLog.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Dag37.MQ.Lib">
+      <HintPath>..\ElephantLog\bin\Debug\netcoreapp2.0\Dag37.MQ.Lib.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

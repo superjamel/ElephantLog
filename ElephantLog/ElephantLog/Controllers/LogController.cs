@@ -8,8 +8,7 @@ using Dag37.MQ.Lib;
 
 namespace ElephantLog.Controllers
 {
-    [Route("log")]
-    public class LogController : Controller
+    public class LogController
     {
         public ILogService LogService { get; }
 
@@ -18,9 +17,10 @@ namespace ElephantLog.Controllers
             LogService = logService;
         }
 
-        [Event("Event", "#")]
+        [Event("Events", "#")]
         public void LogMessage(LogEvent logEvent)
         {
+            Console.WriteLine("EVENT");
             LogService.LogMessage(logEvent);
         }
     }
