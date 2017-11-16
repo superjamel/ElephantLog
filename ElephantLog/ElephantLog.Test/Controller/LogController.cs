@@ -27,7 +27,6 @@ namespace ElephantLog.Test
         [Event("Events", "#")]
         public void HandleLogEvent(LogEvent logMesage)
         {
-            Repository.Save(logMesage);
             Log.LogInformation("Called " + nameof(HandleLogEvent));
             Messages.Add(logMesage);
             LogFlag.Set();

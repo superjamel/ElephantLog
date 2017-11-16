@@ -26,6 +26,7 @@ namespace ElephantLog.Test.Integrations
             services.AddTransient<ILogService, LogService>();
             services.AddMvc();
             services.AddTransient<ILogRepository, LogRepository>();
+
             services.AddRabbitMQ(new BusOptions { HostName = "localhost", Port = 5672 });
         }
 

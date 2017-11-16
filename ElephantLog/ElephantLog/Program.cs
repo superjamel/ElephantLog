@@ -43,9 +43,9 @@ namespace ElephantLog
                })
                .UseStartup<Startup>()
                .UseSerilog(new LoggerConfiguration()
-                            .MinimumLevel.Is(LogEventLevel.Information)
+                            .MinimumLevel.Is(LogEventLevel.Debug)
                             .Enrich.FromLogContext()
-                            .WriteTo.Console(LogEventLevel.Information)
+                            .WriteTo.Console(LogEventLevel.Debug)
                             .WriteTo.MongoDB("mongodb://localhost/logs", collectionName: "appOperational")
                             .CreateLogger())
                             .Build();

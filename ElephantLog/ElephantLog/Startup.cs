@@ -32,7 +32,7 @@ namespace ElephantLog
             services.AddTransient(service => 
                 new MongoClient("mongodb://localhost:27017")
                 .GetDatabase("logs"));
-            services.AddRabbitMQ(new BusOptions { HostName = "localhost", Port = 15672 });
+            services.AddRabbitMQ(new BusOptions { HostName = "localhost", Port = 5672 });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,7 +40,7 @@ namespace ElephantLog
         {
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
-            
+            app.UseRabbitMQ();
             app.UseMvc();
         }
     }
